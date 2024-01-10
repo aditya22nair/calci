@@ -1,26 +1,46 @@
+<!-- Calculator.vue -->
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="calculator">
+    <div class="display">{{ displayValue }}</div>
+    <div class="buttons">
+      <button v-for="button in buttons" :key="button" @click="handleButtonClick(button)">
+        {{ button }}
+      </button>
+    </div>
+  </div>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
+<script src="./components/app"></script>
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+<style scoped>
+#calculator {
+  width: 300px;
+  margin: 50px auto;
+  border: 1px solid  rgb(50, 65, 74);
+  padding: 10px;
+  border-radius: 5px;
 }
-</script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.display {
+  font-size: 20px;
+  margin-bottom: 10px;
+  padding: 5px;
+  background-color: #f0f0f0;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+}
+
+button {
+  font-size: 18px;
+  padding: 10px;
+  cursor: pointer;
+  flex-basis: 25%;
+  color: white;
+  background-color: rgb(50, 65, 74);
 }
 </style>
