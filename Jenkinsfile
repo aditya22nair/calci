@@ -10,7 +10,7 @@ pipeline {
         git 'https://github.com/YOURUSERNAME/jenkins-kubernetes-deployment.git'
       }
     }
-    stage('Build image') {`
+    stage('Build image') {
       steps{
         script {
           dockerImage = docker.build dockerimagename
