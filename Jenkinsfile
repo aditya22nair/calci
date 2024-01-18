@@ -5,11 +5,13 @@ pipeline {
   }
   agent any
   stages {
-    
+
     stage('Build image') {
       steps{
         script {
-          dockerImage = docker.build dockerimagename
+          container('docker') {
+                dockerImage = docker.build dockerimagename
+            }
         }
       }
     }
@@ -25,9 +27,9 @@ pipeline {
         }
       }
     }
-            stage('Deploy to Minikube') {
-            steps {
-                script {
+    stage('Deploy to Minikube') {
+        steps {
+            script {
                     // Set Minikube Docker environment
                     sh 'eval $(minikube docker-env)'
 
