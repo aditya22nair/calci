@@ -5,7 +5,6 @@ WORKDIR /app
 COPY . .
 RUN ls -l 
 RUN npm install -g npm
-RUN npm install fsevents
 RUN npm install ionic --loglevel verbose
 RUN cat npm-debug.log
 # CMD ["node", "src/index.js"]
