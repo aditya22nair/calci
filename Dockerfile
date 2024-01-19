@@ -1,9 +1,9 @@
 # syntax=docker/dockerfile:1
 
-FROM node:18-alpine
+FROM node:18
 WORKDIR /app
 COPY . .
-# RUN npm install
+RUN npm install
 # CMD ["node", "src/index.js"]
 CMD [ "npm", "run", "serve" ]
 EXPOSE 8080
