@@ -5,7 +5,8 @@ WORKDIR /app
 COPY . .
 RUN ls -l 
 RUN npm install -g npm@10.3.0
-RUN npm install
+RUN npm install ionic --loglevel verbose
+RUN cat npm-debug.log
 # CMD ["node", "src/index.js"]
 CMD [ "npm", "run", "serve" ]
 EXPOSE 8080
