@@ -27,9 +27,11 @@ pipeline {
            }
       steps{
         script {
+        container('docker'){
           docker.withRegistry( 'https://registry.hub.docker.com/v2/', registryCredential ) {
             dockerImage.push("latest")
           }
+        }
         }
       }
     }
