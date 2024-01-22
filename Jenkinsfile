@@ -33,11 +33,11 @@ withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 
 usernameVariable: 'DOCKER_REGISTRY_USERNAME')]) {
 
     sh """
-
+      docker tag vue-app:latest aditya22nair/demo_app:latest
       docker login 'https://registry.hub.docker.com/' -u aditya22nair@gmail.com -p 'XwK2/5F\$SLirKaY'
-
+      docker push aditya22nair/demo_app:latest 
     """
-    dockerImage.push("latest")
+    // dockerImage.push("latest")
   }
 
 
