@@ -34,7 +34,7 @@ usernameVariable: 'DOCKER_REGISTRY_USERNAME')]) {
 
     sh """
 
-      docker login ${https://registry.hub.docker.com/} -u ${aditya22nair@gmail.com} -p ${XwK2/5F$SLirKaY}
+      docker login 'https://registry.hub.docker.com/' -u aditya22nair@gmail.com -p XwK2/5F\$SLirKaY
 
     """
     dockerImage.push("latest")
