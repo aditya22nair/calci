@@ -29,10 +29,7 @@ pipeline {
         script {
         container('docker'){
 
-          echo "Docker Hub Username: ${registryCredential.getUsername()}"
-          echo "Docker Hub Password: ${registryCredential.getPassword()}"
-
-          docker.withRegistry( 'https://registry.hub.docker.com/', registryCredential ) { //https://registry.hub.docker.com/v2/
+          docker.withRegistry( 'https://registry.hub.docker.com/v2/', registryCredential ) { //https://registry.hub.docker.com/v2/
             dockerImage.push("latest")
             // docker.image(dockerimagename).push()
           }
