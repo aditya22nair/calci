@@ -9,6 +9,9 @@ spec:
       volumeMounts:
         - name: docker
           mountPath: /var/run/docker.sock
+    - name: kubectl
+      image: bitnami/kubectl
+      command: ["tail", "-f", "/dev/null"]
   volumes:
     - name: docker
       hostPath:
