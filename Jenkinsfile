@@ -30,7 +30,8 @@ pipeline {
         container('docker'){
 
           docker.withRegistry( 'https://registry.hub.docker.com/v2/', registryCredential ) { //https://registry.hub.docker.com/v2/
-            dockerImage.push("latest")
+            // dockerImage.push("latest")
+                    sh "echo ${registryCredential.getPassword()} | docker login -u ${registryCredential.getUsername()} --password-stdin"
             // docker.image(dockerimagename).push()
           }
         }
