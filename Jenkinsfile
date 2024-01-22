@@ -29,9 +29,17 @@ pipeline {
         script {
         container('docker'){
 
-            withDockerRegistry([ credentialsId: "dockerhub", url: "https://registry.hub.docker.com/" ]) {
-        dockerImage.push("latest")
-        }
+withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'DOCKER_REGISTRY_PASSWORD', 
+usernameVariable: 'DOCKER_REGISTRY_USERNAME')]) {
+
+    sh """
+
+      docker login ${https://registry.hub.docker.com/} -u ${aditya22nair@gmail.com} -p ${XwK2/5F$SLirKaY}
+
+    """
+    dockerImage.push("latest")
+  }
+
 
         //   docker.withRegistry( 'https://registry.hub.docker.com/', registryCredential ) { //https://registry.hub.docker.com/v2/
         //     // dockerImage.push("latest")
