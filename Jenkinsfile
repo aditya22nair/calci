@@ -43,7 +43,6 @@ usernameVariable: 'DOCKER_REGISTRY_USERNAME')]) {
 
         //   docker.withRegistry( 'https://registry.hub.docker.com/', registryCredential ) { //https://registry.hub.docker.com/v2/
         //     // dockerImage.push("latest")
-        //     // sh "echo ${registryCredential.getPassword()} | docker login -u ${registryCredential.getUsername()} --password-stdin"
         //     // docker.image(dockerimagename).push()
         //   }
         }
