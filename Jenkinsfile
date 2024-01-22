@@ -29,11 +29,15 @@ pipeline {
         script {
         container('docker'){
 
-          docker.withRegistry( 'https://registry.hub.docker.com/', registryCredential ) { //https://registry.hub.docker.com/v2/
-            dockerImage.push("latest")
-            // sh "echo ${registryCredential.getPassword()} | docker login -u ${registryCredential.getUsername()} --password-stdin"
-            // docker.image(dockerimagename).push()
-          }
+            withDockerRegistry([ credentialsId: "dockerhub", url: "https://registry.hub.docker.com/" ]) {
+        dockerImage.push("latest")
+        }
+
+        //   docker.withRegistry( 'https://registry.hub.docker.com/', registryCredential ) { //https://registry.hub.docker.com/v2/
+        //     // dockerImage.push("latest")
+        //     // sh "echo ${registryCredential.getPassword()} | docker login -u ${registryCredential.getUsername()} --password-stdin"
+        //     // docker.image(dockerimagename).push()
+        //   }
         }
         }
       }
