@@ -12,6 +12,7 @@ spec:
     - name: kubectl
       image: bitnami/kubectl:latest
       command: ["tail", "-f", "/dev/null"]
+      imagePullPolicy: Always
   volumes:
     - name: docker
       hostPath:
