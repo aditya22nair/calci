@@ -11,8 +11,12 @@ spec:
           mountPath: /var/run/docker.sock
     - name: kubectl
       image: bitnami/kubectl:latest
-      command: ["tail", "-f", "/dev/null"]
+      command: ["/bin/sh", "-c", "sleep 99d"]
       imagePullPolicy: Always
+      tty: true
+      securityContext:
+        runAsUser: 0
+    restartPolicy: Never
   volumes:
     - name: docker
       hostPath:
