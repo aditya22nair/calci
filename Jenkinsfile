@@ -61,6 +61,8 @@ usernameVariable: 'DOCKER_REGISTRY_USERNAME')]) {
                 container(name: 'kubectl', shell: '/bin/sh'){
                     // Set Minikube Docker environment
                     // sh 'eval $(minikube docker-env)'
+                    sh 'kubectl -n jenkins create sa jenkins'
+                    sh 'kubectl create clusterrolebinding jenkins --clusterrole cluster-admin --serviceaccount=jenkins:default'
                     sh 'kubectl apply -f deployment.yaml'
                     // Apply Kubernetes Deployment
                     
