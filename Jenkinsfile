@@ -51,16 +51,14 @@ usernameVariable: 'DOCKER_REGISTRY_USERNAME')]) {
     stage('Deploy to Minikube') {
         steps {
             script {
-                kubernetesDeploy(configs: "deployment.yaml")
-                // container('kubectl'){
-                //     // Set Minikube Docker environment
-                //     // sh 'eval $(minikube docker-env)'
 
-                //     // Apply Kubernetes Deployment
-                //     // sh 'kubectl apply -f deployment.yaml'
+                container('kubectl'){
+                    // Set Minikube Docker environment
+                    // sh 'eval $(minikube docker-env)'
 
-                    
-                //  }
+                    // Apply Kubernetes Deployment
+                    sh 'kubectl apply -f deployment.yaml'
+                 }
                 }
             }
         }
