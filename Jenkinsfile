@@ -52,13 +52,13 @@ usernameVariable: 'DOCKER_REGISTRY_USERNAME')]) {
         steps {
             script {
 
-                // container('kubectl'){
+                container('docker'){
                     // Set Minikube Docker environment
                     // sh 'eval $(minikube docker-env)'
 
                     // Apply Kubernetes Deployment
                     sh 'kubectl apply -f deployment.yaml'
-                //  }
+                 }
                 }
             }
         }
