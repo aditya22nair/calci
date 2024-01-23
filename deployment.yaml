@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: vue-app-container
-          image: vue-app
+          image: aditya22nair/vueapp:latest
           ports:
             - containerPort: 8080
 # apiVersion: apps/v1
